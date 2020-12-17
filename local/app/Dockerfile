@@ -20,6 +20,7 @@ RUN yum install -y \
         php-mbstring \
         php-pdo \
         php-pdo_mysql \
+        php-process \
         php-tokenizer \
         php-xml
 
