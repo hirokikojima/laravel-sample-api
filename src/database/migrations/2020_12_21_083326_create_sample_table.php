@@ -17,7 +17,7 @@ class CreateSampleTable extends Migration {
 		{
 			$table->increments('id');
 			$table->string('name');
-			$table->timestamps(10);
+			$table->timestamps();
 			$table->softDeletes();
 		});
 	}
