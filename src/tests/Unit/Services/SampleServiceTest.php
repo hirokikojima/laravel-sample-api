@@ -4,7 +4,7 @@ namespace Tests\Unit\Services;
 use App\Models\Sample;
 use App\Services\SampleService;
 
-use TestCase;
+use Tests\TestCase;;
 
 class SampleServiceTest extends TestCase
 {
@@ -21,7 +21,7 @@ class SampleServiceTest extends TestCase
     {
         $sample = factory(Sample::class)->create();
 
-        $result = $this->sample_service->getService($sample->id);
+        $result = $this->sample_service->getSample($sample->id);
 
         $this->assertNotNull($result);
     }
