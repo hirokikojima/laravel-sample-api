@@ -33,7 +33,7 @@ jobs:
         php-version: '7.3'
         extensions: mbstring
     - name: Copy .env
-      run: php -r "file_exists('.env') || copy('test/.env.example', '.env');"
+      run: php -r "file_exists('.env') || copy('tests/.env.example', '.env');"
     - name: Install Dependencies
       run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
     - name: Generate key
