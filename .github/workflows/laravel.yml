@@ -33,7 +33,7 @@ jobs:
         php-version: '7.3'
         extensions: mbstring
     - name: Copy .env
-      run: php -r "file_exists('.env') || copy('tests/.env.example', '.env');"
+      run: php -r "file_exists('.env') || copy('.env.github_actions', '.env');"
     - name: Install Dependencies
       run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
     - name: Generate key
@@ -44,5 +44,7 @@ jobs:
       run: php artisan db:seed --force
     - name: Directory Permissions
       run: chmod -R 777 storage bootstrap/cache
+    - name: Copy tests/.env
+      run: php -r "file_exists('tests/.env') || copy('.env.github_actions', 'tests/.env');"
     - name: Execute tests (Unit and Feature tests) via PHPUnit
       run: vendor/bin/phpunit
