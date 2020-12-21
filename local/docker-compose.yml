@@ -1,7 +1,7 @@
 version: '3'
 
 volumes:
-  mysql-db:
+  laravel-sample-api-db:
     driver: local
 
 services:
@@ -24,7 +24,7 @@ services:
       TZ: 'Asia/Tokyo'
     command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
     volumes:
-    - mysql-db:/var/lib/mysql
+    - laravel-sample-api-db:/var/lib/mysql
     - ./mysql/my.cnf:/etc/mysql/conf.d/my.cnf
     - ./mysql/initdb:/docker-entrypoint-initdb.d
     ports:
