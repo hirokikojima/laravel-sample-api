@@ -1,0 +1,33 @@
+openapi: 3.0.0
+info:
+  title: 'Sample API'
+  version: '0.1'
+paths:
+  /api/sample:
+    get:
+      summary: 'sample api'
+      operationId: 'App\Http\Controllers\Api\SampleController::index'
+      responses:
+        '200':
+          description: 'A sample successful response.'
+          content:
+            application/json:
+              schema:
+                properties:
+                  status: { type: integer, example: 1 }
+                  data: { $ref: '#/components/schemas/Sample_IndexResource' }
+                  errors: { type: array, items: { type: string } }
+                type: object
+components:
+  schemas:
+    Sample_IndexResource:
+      properties:
+        id:
+          description: 'Transform the resource into an array.'
+          type: integer
+          example: 1
+        name:
+          description: 'Transform the resource into an array.'
+          type: string
+          example: 'example name'
+      type: object
