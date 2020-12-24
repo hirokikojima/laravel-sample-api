@@ -29,3 +29,13 @@ services:
     - ./mysql/initdb:/docker-entrypoint-initdb.d
     ports:
     - 3306:3306
+
+  swagger-ui:
+    image: swaggerapi/swagger-ui
+    container_name: swagger-ui
+    ports:
+      - 8080:8080
+    volumes:
+      - ../src/storage/api/openapi.yaml:/openapi.yaml
+    environment:
+      SWAGGER_JSON: /openapi.yaml
